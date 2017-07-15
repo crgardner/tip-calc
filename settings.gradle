@@ -1,0 +1,6 @@
+include 'domain'
+include 'application'
+include 'api'
+
+rootProject.name = 'tip-calc'
+

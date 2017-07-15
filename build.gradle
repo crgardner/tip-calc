@@ -1,0 +1,18 @@
+subprojects {
+    apply plugin: 'java'
+    
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        testCompile junit
+        testCompile mockito
+        testCompile assertj
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradle.version
+}
+
