@@ -13,6 +13,6 @@ subprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = gradle.version
+    gradleVersion = '4.0.1'
 }
 
