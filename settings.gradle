@@ -2,6 +2,7 @@ include 'domain'
 include 'boundary'
 include 'application'
 include 'api'
+include 'main'
 
 rootProject.name = 'tip-calc'
 
