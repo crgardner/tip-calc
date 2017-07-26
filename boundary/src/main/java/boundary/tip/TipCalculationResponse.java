@@ -8,9 +8,9 @@ public class TipCalculationResponse {
     private final Money totalAmount;
 
 
-    public TipCalculationResponse(Money expectedTipAmount, Money expectedTotalAmount) {
-        this.tipAmount = expectedTipAmount;
-        this.totalAmount = expectedTotalAmount;
+    public TipCalculationResponse(Money tipAmount, Money totalAmount) {
+        this.tipAmount = tipAmount;
+        this.totalAmount = totalAmount;
     }
 
     public Money tipAmount() {
