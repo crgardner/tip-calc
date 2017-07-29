@@ -13,7 +13,7 @@ public class Bill {
         this.billAmount = billAmount;
     }
 
-    public TotalBillAmount calculateTotal(TipRate tipRate) {
+    public TotalBillAmount calculateTotalWith(TipRate tipRate) {
         Money tipAmount = tipRate.multiply(billAmount);
         Money totalAmount = tipAmount.plus(billAmount);
         

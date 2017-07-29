@@ -13,7 +13,7 @@ public class TipCalculationApplication implements TipCalculationBoundary {
     public void handle(TipCalculationRequest request, TipCalculationResponseBoundary responseBoundary) {
         Bill bill = new Bill(usdOf(request.billAmount()));
         
-        TotalBillAmount totalBillAmount = bill.calculateTotal(of(request.tipRate()));
+        TotalBillAmount totalBillAmount = bill.calculateTotalWith(of(request.tipRate()));
         
         TipCalculationResponse response = new TipCalculationResponse(totalBillAmount.tipAmount(), totalBillAmount.totalAmount());
         
