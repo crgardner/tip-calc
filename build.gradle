@@ -1,13 +1,29 @@
 ext { 
     junit = "org.junit.vintage:junit-vintage-engine:4.12.2"
     junitjupiter = "org.junit.jupiter:junit-jupiter-api:5.0.2"
+    junitengine = "org.junit.jupiter:junit-jupiter-engine:5.0.2"
+    junitlauncher = "org.junit.platform:junit-platform-launcher:1.0.2"
+    apiguardian = "org.apiguardian:apiguardian-api:1.0.0"
+    
     mockito = "org.mockito:mockito-core:2.13.0"
     assertj = "org.assertj:assertj-core:3.8.0"
+    
     sparkjava = "com.sparkjava:spark-core:2.7.1"
+    
     javamoney = "org.javamoney:moneta:1.1"
     jodamoney = "org.joda:joda-money:0.12"
     commonslang = "org.apache.commons:commons-lang3:3.6"
 }
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
+    }
+}
+
     
 allprojects {
     apply plugin: 'java'
@@ -17,22 +33,30 @@ allprojects {
         jcenter()
         mavenCentral()
     }
-
-    dependencies {
-        compile commonslang
-        
-        testCompile junit
-        testCompile junitjupiter
-        testCompile mockito
-        testCompile assertj
-    }
-
+    
     eclipse {
         classpath {
             defaultOutputDir = file('build-ide')
         }
     }
+}
 
+configure(subprojects.findAll { it.name != 'test-support' }) {
+	apply plugin: 'org.junit.platform.gradle.plugin'
+	
+    dependencies {
+        compile commonslang
+        
+        testCompile junit
+        testCompile junitjupiter
+        testCompile apiguardian
+        testCompile mockito
+        testCompile assertj
+        testCompile project(':test-support')
+        
+        testRuntimeOnly junitengine
+        testRuntimeOnly junitlauncher
+    }
 }
 
 task wrapper(type: Wrapper) {

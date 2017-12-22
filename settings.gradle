@@ -3,6 +3,7 @@ include 'boundary'
 include 'application'
 include 'api'
 include 'main'
+include 'test-support'
 
 rootProject.name = 'tip-calc'
 
