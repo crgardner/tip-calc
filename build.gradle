@@ -1,15 +1,28 @@
+ext { 
+    junit = "org.junit.vintage:junit-vintage-engine:4.12.2"
+    junitjupiter = "org.junit.jupiter:junit-jupiter-api:5.0.2"
+    mockito = "org.mockito:mockito-core:2.13.0"
+    assertj = "org.assertj:assertj-core:3.8.0"
+    sparkjava = "com.sparkjava:spark-core:2.7.1"
+    javamoney = "org.javamoney:moneta:1.1"
+    jodamoney = "org.joda:joda-money:0.12"
+    commonslang = "org.apache.commons:commons-lang3:3.6"
+}
+    
 allprojects {
     apply plugin: 'java'
     apply plugin: 'eclipse'
 
     repositories {
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
         compile commonslang
         
         testCompile junit
+        testCompile junitjupiter
         testCompile mockito
         testCompile assertj
     }
@@ -23,6 +36,6 @@ allprojects {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.0.1'
+    gradleVersion = '4.4.1'
 }
 
