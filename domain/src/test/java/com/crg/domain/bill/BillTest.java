@@ -3,7 +3,7 @@ package com.crg.domain.bill;
 import static org.assertj.core.api.Assertions.*;
 
 import org.joda.money.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.crg.domain.tip.TipRate;
 

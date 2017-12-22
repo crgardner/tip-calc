@@ -4,14 +4,15 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import org.joda.money.*;
-import org.junit.*;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+
+import com.crg.test.mockito.MockitoExtension;
 
 import boundary.tip.*;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class TipCalculationApplicationTest {
     private TipCalculationBoundary application;
     private TipCalculationRequest tipCalculationRequest;
@@ -21,7 +22,7 @@ public class TipCalculationApplicationTest {
     @Mock
     private TipCalculationResponseBoundary responseBoundary;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         application = new TipCalculationApplication();
     }

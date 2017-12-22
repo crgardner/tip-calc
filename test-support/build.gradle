@@ -1,4 +1,5 @@
 dependencies {
    compile junitjupiter
    compile mockito
+   compile apiguardian
 }
