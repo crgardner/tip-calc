@@ -33,12 +33,6 @@ allprojects {
         jcenter()
         mavenCentral()
     }
-    
-    eclipse {
-        classpath {
-            defaultOutputDir = file('build-ide')
-        }
-    }
 }
 
 configure(subprojects.findAll { it.name != 'test-support' }) {
