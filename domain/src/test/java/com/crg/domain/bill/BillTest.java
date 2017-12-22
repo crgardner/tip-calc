@@ -3,15 +3,17 @@ package com.crg.domain.bill;
 import static org.assertj.core.api.Assertions.*;
 
 import org.joda.money.*;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import com.crg.domain.tip.TipRate;
 
+@DisplayName("Bill")
 public class BillTest {
     private Bill bill;
     private TotalBillAmount totalBillAmount;
 
     @Test
+    @DisplayName("calculates its total amount based on a tip rate")
     public void calculatesTotalAmountBasedOnTipRate() throws Exception {
         bill = new Bill(Money.of(CurrencyUnit.USD, 2d));
 
