@@ -13,20 +13,26 @@ ext {
     javamoney = "org.javamoney:moneta:1.1"
     jodamoney = "org.joda:joda-money:0.12"
     commonslang = "org.apache.commons:commons-lang3:3.6"
+    
+    baseName = 'com.crg'
 }
 
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     
     dependencies {
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
+        classpath "gradle.plugin.com.zyxist:chainsaw:0.1.3"
     }
 }
 
 allprojects {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'eclipse'
 
     repositories {
@@ -39,14 +45,14 @@ configure(subprojects.findAll { it.name != 'test-support' }) {
 	apply plugin: 'org.junit.platform.gradle.plugin'
 	
     dependencies {
-        compile commonslang
+        implementation commonslang
         
-        testCompile junit
-        testCompile junitjupiter
-        testCompile apiguardian
-        testCompile mockito
-        testCompile assertj
-        testCompile project(':test-support')
+        testCompileOnly junit
+        testImplementation junitjupiter
+        testImplementation apiguardian
+        testImplementation mockito
+        testImplementation assertj
+        testImplementation project(':test-support')
         
         testRuntimeOnly junitengine
         testRuntimeOnly junitlauncher
