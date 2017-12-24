@@ -1,4 +1,4 @@
-package boundary.tip;
+package com.crg.boundary.tip;
 
 import org.joda.money.Money;
 

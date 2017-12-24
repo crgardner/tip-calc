@@ -8,9 +8,8 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 
+import com.crg.boundary.tip.*;
 import com.crg.test.mockito.MockitoExtension;
-
-import boundary.tip.*;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("TipCalculationApplication")

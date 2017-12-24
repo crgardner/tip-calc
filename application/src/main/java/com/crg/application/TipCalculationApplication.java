@@ -3,9 +3,8 @@ package com.crg.application;
 import static com.crg.domain.money.MoneyFactory.*;
 import static com.crg.domain.tip.TipRate.*;
 
+import com.crg.boundary.tip.*;
 import com.crg.domain.bill.*;
-
-import boundary.tip.*;
 
 public class TipCalculationApplication implements TipCalculationBoundary {
 

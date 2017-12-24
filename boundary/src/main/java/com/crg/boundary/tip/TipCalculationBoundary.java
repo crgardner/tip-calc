@@ -1,4 +1,4 @@
-package boundary.tip;
+package com.crg.boundary.tip;
 
 public interface TipCalculationBoundary {
 
