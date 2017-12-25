@@ -4,5 +4,5 @@ javaModule.name = "${baseName}.${project.name}"
 javaModule.extraTestModules = ['org.mockito', 'assertj.core', 'com.crg.test.support']
 
 dependencies {
-    compile sparkjava
+    api sparkjava
 }
