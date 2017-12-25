@@ -1,4 +1,4 @@
 dependencies {
-    compile project(':api')
-    compile project(':application')
+    implementation project(':api')
+    implementation project(':application')
 }
