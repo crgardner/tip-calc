@@ -1,3 +1,15 @@
+apply plugin:'com.zyxist.chainsaw'
+
+
+eclipse.classpath.file {
+    whenMerged {
+        entries.findAll { it.kind == 'lib' }.each { it.entryAttributes['module'] = 'true' }
+    }
+}
+
+javaModule.name = "${baseName}.${project.name}"
+javaModule.extraTestModules = ['org.mockito', 'assertj.core']
+
 dependencies {
     api jodamoney
 }    

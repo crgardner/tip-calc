@@ -1,3 +1,10 @@
+jar {
+    inputs.property("moduleName", "com.crg.test.support")
+    manifest {
+        attributes('Automatic-Module-Name': "com.crg.test.support")
+    }
+}
+
 dependencies {
    compile junitjupiter
    compile mockito

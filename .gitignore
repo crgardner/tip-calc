@@ -6,3 +6,6 @@ build-ide/
 .project
 .classpath
 bin/
+.idea/
+*.iml
+out/
