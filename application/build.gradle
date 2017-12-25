@@ -1,4 +1,11 @@
+apply plugin:'com.zyxist.chainsaw'
+
+javaModule.name = "${baseName}.${project.name}"
+javaModule.extraTestModules = ['org.mockito', 'assertj.core', 'com.crg.test.support']
+
 dependencies {
-    compile project(':boundary')
-    compile project(':domain')
+    api project(':boundary')
+    implementation project(':domain')
+
+    testImplementation project(':test-support')
 }
