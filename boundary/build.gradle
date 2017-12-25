@@ -5,6 +5,4 @@ javaModule.extraTestModules = ['org.mockito', 'assertj.core', 'com.crg.test.supp
 
 dependencies {
     api jodamoney
-
-    testImplementation project(':test-support')
 }
