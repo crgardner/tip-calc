@@ -2,12 +2,15 @@ package com.crg.domain.bill;
 
 import static org.assertj.core.api.Assertions.*;
 
+import com.crg.test.mockito.MockitoExtension;
 import org.joda.money.*;
 import org.junit.jupiter.api.*;
 
 import com.crg.domain.tip.TipRate;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 @DisplayName("Bill")
+@ExtendWith(MockitoExtension.class)
 public class BillTest {
     private Bill bill;
     private TotalBillAmount totalBillAmount;

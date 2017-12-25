@@ -1,12 +1,10 @@
-jar {
-    inputs.property("moduleName", "com.crg.test.support")
-    manifest {
-        attributes('Automatic-Module-Name': "com.crg.test.support")
-    }
-}
+apply plugin:'com.zyxist.chainsaw'
+
+javaModule.name = "${baseName}.${project.name}"
 
 dependencies {
-   compile junitjupiter
-   compile mockito
-   compile apiguardian
+
+    compile junitjupiter
+    compile mockito
+    compile apiguardian
 }
