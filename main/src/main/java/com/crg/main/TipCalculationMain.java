@@ -1,13 +1,12 @@
 package com.crg.main;
 
 
-import static spark.Spark.*;
-
 import com.crg.api.hello.HelloWorld;
 import com.crg.api.tip.RestTipCalculationResponsePresenter;
 import com.crg.api.tip.TipController;
 import com.crg.application.TipCalculationApplication;
-import com.crg.boundary.tip.TipCalculationBoundary;
+
+import static spark.Spark.get;
 
 
 public class TipCalculationMain {
