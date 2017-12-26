@@ -1,5 +1,5 @@
 module com.crg.boundary {
-    requires joda.money;
+    requires transitive joda.money;
 
     exports com.crg.boundary.tip;
 }

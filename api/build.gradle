@@ -5,4 +5,6 @@ javaModule.extraTestModules = ['org.mockito', 'assertj.core', 'com.crg.test.supp
 
 dependencies {
     api sparkjava
+
+    implementation project(':boundary')
 }
