@@ -10,14 +10,20 @@ public class TipCalculationApplication implements TipCalculationBoundary {
 
     @Override
     public void handle(TipCalculationRequest request, TipCalculationResponseBoundary responseBoundary) {
-        Bill bill = new Bill(usdOf(request.billAmount()));
-        
-        TotalBillAmount totalBillAmount = bill.calculateTotalWith(of(request.tipRate()));
-        
-        TipCalculationResponse response = new TipCalculationResponse(totalBillAmount.tipAmount(), totalBillAmount.totalAmount());
-        
+        TotalBillAmount totalBillAmount = calculateAmount(request);
+        TipCalculationResponse response = prepareResponse(totalBillAmount);
+
         responseBoundary.receive(response);
-        
+    }
+
+    private TotalBillAmount calculateAmount(TipCalculationRequest request) {
+        Bill bill = new Bill(usdOf(request.billAmount()));
+
+        return bill.calculateTotalWith(of(request.tipRate()));
+    }
+
+    private TipCalculationResponse prepareResponse(TotalBillAmount totalBillAmount) {
+        return new TipCalculationResponse(totalBillAmount.tipAmount(), totalBillAmount.totalAmount());
     }
 
 }
