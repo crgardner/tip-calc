@@ -43,19 +43,29 @@ allprojects {
 
 configure(subprojects.findAll { it.name != 'test-support' }) {
 	apply plugin: 'org.junit.platform.gradle.plugin'
-	
+    apply plugin:'com.zyxist.chainsaw'
+
     dependencies {
         implementation commonslang
-        
+
         testCompileOnly junit
         testImplementation junitjupiter
         testImplementation apiguardian
         testImplementation mockito
         testImplementation assertj
         testImplementation project(':test-support')
-        
+
         testRuntimeOnly junitengine
         testRuntimeOnly junitlauncher
+    }
+
+    javaModule.name = "${baseName}.${project.name}"
+    javaModule.extraTestModules = ['org.mockito', 'assertj.core', 'com.crg.test.support']
+
+    eclipse.classpath.file {
+        whenMerged {
+            entries.findAll { it.kind == 'lib' }.each { it.entryAttributes['module'] = 'true' }
+        }
     }
 }
 
