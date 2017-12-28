@@ -21,7 +21,7 @@ import spark.Response;
 import java.math.BigDecimal;
 
 @ExtendWith(MockitoExtension.class)
-public class TipControllerTest implements TipCalculationResponseBoundary {
+class TipControllerTest {
     @Mock
     private TipCalculationBoundary tipCalculationBoundary;
 
@@ -34,26 +34,18 @@ public class TipControllerTest implements TipCalculationResponseBoundary {
     @Mock
     private Response response;
 
-    @Mock
-    private TipCalculationViewModel tipCalculationViewModel;
-
     private TipController tipController;
-    private TipCalculationRequest tipCalculationRequest;
     private TipCalculationResponse tipCalculationResponse;
 
-    public TipControllerTest() {
-    }
-
     @BeforeEach
-    public void init() {
+    void init() {
         tipController = new TipController(tipCalculationBoundary, tipCalculationPresenter);
-        tipCalculationRequest = new TipCalculationRequest(12d, 10);
         tipCalculationResponse = new TipCalculationResponse(Money.of(CurrencyUnit.USD, 12d),
                                                             Money.of(CurrencyUnit.USD, 20d));
     }
 
     @Test
-    public void controlsAccessToTipBoundary() {
+    void controlsAccessToTipBoundary() {
         doAnswer(byCallingOutputBoundary()).when(tipCalculationBoundary).handle(any(TipCalculationRequest.class), any(TipCalculationResponseBoundary.class));
         doAnswer(byPopulatingView()).when(tipCalculationPresenter).present(any(TipCalculationViewModel.class), eq(tipCalculationResponse));
 
@@ -63,7 +55,6 @@ public class TipControllerTest implements TipCalculationResponseBoundary {
         verify(tipCalculationPresenter).present(any(TipCalculationViewModel.class), eq(tipCalculationResponse));
         assertThat(totalAmount).isEqualTo(tipCalculationResponse.totalAmount().getAmount());
     }
-
 
     private Answer<TipCalculationBoundary> byCallingOutputBoundary() {
         return invocation -> {
@@ -82,8 +73,4 @@ public class TipControllerTest implements TipCalculationResponseBoundary {
         };
     }
 
-    @Override
-    public void receive(TipCalculationResponse tipCalculationResponse) {
-
-    }
 }
