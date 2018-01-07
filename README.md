@@ -2,7 +2,7 @@
 
 This is an experiment combining several things:
 
-* Brian P. Hogan's [Exercise for Programmers](https://pragprog.com/book/bhwb/exercises-for-programmers)
+* Brian P. Hogan's [Exercises for Programmers](https://pragprog.com/book/bhwb/exercises-for-programmers)
 (Tip Calculation Exercise)
 * [The Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html)
 * Java 9 Modules
@@ -12,7 +12,7 @@ This is an experiment combining several things:
 
 At the root project directory (tip-calc) execute the following:
 
-     ./gradlew run    # Linux (you make need to change the permissions)
+     ./gradlew run    # Linux (you may need to change the permissions)
 
      gradlew run      # Windows
 
