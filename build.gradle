@@ -35,6 +35,8 @@ allprojects {
     apply plugin: 'java-library'
     apply plugin: 'eclipse'
 
+    sourceCompatibility = 1.9
+
     repositories {
         jcenter()
         mavenCentral()

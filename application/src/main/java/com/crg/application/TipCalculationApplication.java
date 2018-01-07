@@ -6,7 +6,7 @@ import static com.crg.domain.tip.TipRate.*;
 import com.crg.boundary.tip.*;
 import com.crg.domain.bill.*;
 
-public class TipCalculationApplication implements TipCalculationBoundary {
+class TipCalculationApplication implements TipCalculationBoundary {
 
     @Override
     public void handle(TipCalculationRequest request, TipCalculationResponseBoundary responseBoundary) {

@@ -13,7 +13,7 @@ import com.crg.test.mockito.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("TipCalculationApplication")
-public class TipCalculationApplicationTest {
+class TipCalculationApplicationTest {
     private TipCalculationBoundary application;
     private TipCalculationRequest tipCalculationRequest;
     private Money expectedTipAmount;
@@ -29,7 +29,7 @@ public class TipCalculationApplicationTest {
 
     @Test
     @DisplayName("coordinates tip calculation for a bill")
-    public void coordinatesTipCalculationForBill() {
+    void coordinatesTipCalculationForBill() {
         tipCalculationRequest = new TipCalculationRequest(11.25, 15);
 
         application.handle(tipCalculationRequest, responseBoundary);
