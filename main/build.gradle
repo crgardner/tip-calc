@@ -2,3 +2,8 @@ dependencies {
     implementation project(':api')
     implementation project(':application')
 }
+
+apply plugin: 'application'
+
+mainClassName = "com.crg.main.TipCalculationMain"
+
